@@ -1,0 +1,84 @@
+
+body{
+	width:100%;
+	height:570px;
+	margin:0;
+	background-color:#E9E9E1;
+	font-family:"造字工房悦圆演示版常规体", "造字工房悦黑演示版常规体", "造字工房悦黑演示版纤细体", "造字工房悦黑演示版特细体", "造字工房悦黑演示版细体" ,"方正华隶_GBK", "方正隶书_GBK",
+	             Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	}
+a{
+	text-decoration:none;
+	color:inherit;
+	}
+#center_top{
+	width:100%;
+	height:35px;
+	background-color:#666;
+	margin-bottom:5px;
+	}
+#top{
+	width:1200px;
+	height:35px;
+	background-color:#222;
+	text-align:center;
+	color:#ffffff;
+	}
+#logo{
+	float:left;
+	margin:3px 0 0 10px;
+	}
+#logo b{
+	font-size:24px;
+	position:relative;
+	color:6EC19E;
+	left:10px;
+	top:-7px;
+	}
+#user{
+	float:right;
+	list-style:none;
+	margin:13px 0 0 0;
+	padding:0;
+	}
+#user > a{
+	padding:0 8px;
+	}
+#user:hover > a{
+	font-weight:bolder;
+	} 
+#user ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:none;
+	position:absolute;
+	z-index:99;
+	}
+#user:hover ul{
+	display:block;
+	}
+#user ul li a , #user ul li button{
+	width:80px;
+	height:26px;
+	display:block;
+	background-color:#555555;
+	border:0;
+	color:inherit;
+	font-size:14px;
+	font-family:"造字工房悦圆演示版常规体", "造字工房悦黑演示版常规体", "造字工房悦黑演示版纤细体", "造字工房悦黑演示版特细体", "造字工房悦黑演示版细体";
+	text-align:center;
+	padding-top:6px;
+	}
+#user ul li a:hover , #user ul li button:hover{
+	background-color:#999999;
+	}
+#link_quit{
+	margin-bottom:1px;
+	}
+#main{
+	width:1200px;
+	
+	margin:0 auto;
+	background-color:#eee;
+	}
