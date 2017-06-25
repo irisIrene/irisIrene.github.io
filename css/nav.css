@@ -3,6 +3,7 @@ body{
 		font-family:"造字工房悦圆演示版常规体", "造字工房悦黑演示版常规体", "造字工房悦黑演示版纤细体", "造字工房悦黑演示版特细体", "造字工房悦黑演示版细体",
 		"方正舒体", "方正姚体", "方正少儿简体", "方正胖头鱼简体", "方正喵呜体", "方正古隶简体",
 		 Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+		background-color:#eee;
 	}
 	a{
 		text-decoration: none;
@@ -17,6 +18,7 @@ nav{
 	color:#fff;
 }
 nav>div{
+	width:1165px;
 	margin:5px 0 0 30px;
 	}
 nav>div img,h1{
@@ -41,6 +43,7 @@ nav>div img,h1{
 	text-align:center;
 	}
 #link_div a:hover{
-	box-shadow:0 0 10px #fff;
-	color:#FBE3E3;
+	padding-bottom:2px;
+	border-bottom:#FDE1E2 2px solid;
+	color:#B9F8F5;
 	}

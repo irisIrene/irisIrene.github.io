@@ -51,8 +51,9 @@ nav>div img,h1{
 	text-align:center;
 	}
 #link_div a:hover{
-	box-shadow:0 0 10px #fff;
-	color:#FBE3E3;
+	padding-bottom:2px;
+	border-bottom:#FDE1E2 2px solid;
+	color:#B9F8F5;
 	}
 body>center{
     width: 100%;
