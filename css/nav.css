@@ -1,45 +1,46 @@
 body{
-                margin:0;
-                font-family:"造字工房悦圆演示版常规体", "造字工房悦黑演示版常规体", "造字工房悦黑演示版纤细体", "造字工房悦黑演示版特细体", "造字工房悦黑演示版细体",
-	            "方正舒体", "方正姚体", "方正少儿简体", "方正胖头鱼简体", "方正喵呜体", "方正古隶简体",
-	             Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
-            }
-            a{
-                text-decoration: none;
-                color:#fff;
-            }
-            
-        nav{
-			height:50px;
-			width: 100%;
-			position: fixed;
-			color:#fff;
-		}
-		nav>div{
-			margin:5px 0 0 30px;
-			}
-		nav>div img,h1{
-			float:left;
-			}
-		#iris{
-			float:left;
-			margin:-10px 0 0 10px;
-			font-size:24px;
-			color:#FDE1E2;
-		}
-		#Irene{
-			float:left;
-			margin-top:-14px;
-			color:#B9F8F5;
-			font-size:30px;
-			}
-		#link_div{
-			float:right;
-			margin:10px 20px 0 0;
-			font-size:24px;
-			text-align:center;
-			}
-		#link_div a:hover{
-			box-shadow:0 0 10px #fff;
-			color:#FBE3E3;
-			}
+		margin:0;
+		font-family:"造字工房悦圆演示版常规体", "造字工房悦黑演示版常规体", "造字工房悦黑演示版纤细体", "造字工房悦黑演示版特细体", "造字工房悦黑演示版细体",
+		"方正舒体", "方正姚体", "方正少儿简体", "方正胖头鱼简体", "方正喵呜体", "方正古隶简体",
+		 Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	}
+	a{
+		text-decoration: none;
+		color:#fff;
+	}
+	
+nav{
+	height:50px;
+	width: 100%;
+	position: fixed;
+	background-color:#C8DFDE;
+	color:#fff;
+}
+nav>div{
+	margin:5px 0 0 30px;
+	}
+nav>div img,h1{
+	float:left;
+	}
+#iris{
+	float:left;
+	margin:-10px 0 0 10px;
+	font-size:24px;
+	color:#FDE1E2;
+}
+#Irene{
+	float:left;
+	margin-top:-14px;
+	color:#B9F8F5;
+	font-size:30px;
+	}
+#link_div{
+	float:right;
+	margin:10px 20px 0 0;
+	font-size:24px;
+	text-align:center;
+	}
+#link_div a:hover{
+	box-shadow:0 0 10px #fff;
+	color:#FBE3E3;
+	}
