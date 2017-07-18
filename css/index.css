@@ -8,15 +8,7 @@ body{
 a{
 	text-decoration:none;
 	color:#fff;
-	}
-	
-#imgcontent{
-    position: fixed;
-    margin: 100px  0 0 40%
-}
-#imgcontent>h2{
-    color:#B9DDD6;
-}		
+	}		
 nav{
     height:50px;
     width: 100%;
