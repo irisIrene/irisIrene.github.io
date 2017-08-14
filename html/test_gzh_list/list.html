@@ -6,11 +6,12 @@
             body{margin: 0; width: 750px;}
             a{text-decoration: none}
             
-            .container{position:absolute; width: 750px; background-color:#fff; box-shadow: 0 5px 5px #fff; display: none;}
+            .grey{position:absolute; width:750px; height: 100%; background-color:rgba(200,200,200,0.5);display: none;}
+            .container{width: 80%; margin:30% 10%;  background-color:#fff; box-shadow: 0 5px 5px #fff;}
             .container h2{text-align: center;margin:0;}
             .container h2>img{float: right;}
-            .container>a{display: block; width: 100px; margin: 0 auto; padding: 10px; background-color:#ddd; box-shadow: 0 5px 5px #eee;}
-            .container>img{width:90%; margin:0 5%;}
+            .container>a{display: block; width: 100px; margin: 0 auto; padding: 10px; color:#fff; background-color:#ddd; box-shadow: 0 0 3px #eee;}
+            .container>img{width:40%; margin: 0 30%;}
             .container p{text-align: center; font-size: 30px;}
             table{width:750px; margin: 0 auto; padding: 10px;}
             .icon{width: 200px; height: 300px; color:#666; text-align: center; font-size: 28px;}
@@ -28,11 +29,13 @@
     
     <body>
         
-        <div class="container" id="ycshw">
-            <h2> <img src="images/icon_close.png" onclick="hide('ycshw');"/> <b>永川生活网</b><br />永川电视台网络版，百万永川人的网上家园！电话：023-49395562.</h2>
+        <div class="grey"  id="ycshw">
+        <div class="container">
+            <h2> <img src="images/icon_close.png" onclick="hide('ycshw');"/> 永川生活网<br />永川电视台网络版，百万永川人的网上家园！<br />电话：023-49395562.</h2><br />
             <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5NjMwNDA3OA==&scene=124#wechat_redirect">--历史纪录--</a>
             <img src="images/ewm_ycshw.jpeg" />
             <p>长按上图——识别图中二维码——关注</p>
+        </div>
         </div>
         
             <table>  
