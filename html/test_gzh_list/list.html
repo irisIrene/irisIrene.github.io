@@ -7,46 +7,65 @@
             body{margin: 0; width: 750px;}
             a{text-decoration: none}
             
-            .grey{position:absolute; width:100%; height: 100%; background-color:rgba(200,200,200,0.5);}
-            .container{position:absolute; width:750px; margin:30% 10%;  background-color:#fff; box-shadow: 0 5px 5px #fff;}
+            .container{z-index: 9999;position:absolute; width:750px; margin:30% 10%;  background-color:#fff; box-shadow: 0 5px 5px #fff; display: none;}
             .container h2{text-align: center;margin:0;}
             .container h2>img{float: right;}
             .container>a{display: block; width: 100px; margin: 0 auto; padding: 10px; color:#fff; background-color:#ddd; box-shadow: 0 0 3px #eee;}
             .container>img{width:40%; margin: 0 30%;}
             .container p{text-align: center; font-size: 30px;}
-            #tb{width: 100%;}
-            table{width:750px; margin: 0 auto; padding: 10px;}
+            table{width:80%; min-width: 750px; max-width: 900px; margin:0 10%; padding: 10px;}
             .icon{width: 200px; height: 300px; color:#666; text-align: center; font-size: 28px;}
             .icon>img{width: 180px; height: 180px;}
+            
+            .mask {   
+            color:#C7EDCC;
+            background-color:rgba(200,200,200,0.5);
+            position:absolute;
+            top:0px;
+            left:0px;
+            filter: Alpha(Opacity=60);
+        } 
         </style>
+        
+        <script language=javascript type="text/javascript">
+        function popupDiv(div_id) {   
+            var div_obj = $("#"+div_id);  
+            var windowWidth = document.body.clientWidth;       
+            var windowHeight = document.body.clientHeight;  
+            var popupHeight = div_obj.height();       
+            var popupWidth = div_obj.width();    
+            //添加并显示遮罩层   
+            $("<div id='mask'></div>").addClass("mask")   
+                                  .width(windowWidth + document.body.scrollWidth)   
+                                  .height(windowHeight + document.body.scrollHeight)   
+                                  .click(function() {hideDiv(div_id); })   
+                                  .appendTo("body")   
+                                  .fadeIn(200);   
+             div_obj.css({"position": "absolute"})   
+               .animate({left: windowWidth/2-popupWidth/2,    
+                         top: windowHeight/2-popupHeight/2, opacity: "show" }, "slow");
+        }   
+      
+        function hideDiv(div_id) {   
+            $("#mask").remove();   
+            $("#" + div_id).animate({left: 0, top: 0, opacity: "hide" }, "slow");   
+        }  
+   </script>
+        
     </head>
     
-    <body>
+    <body>    
         
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $(".close").click(function(){
-                    $(".grey").animate({opacity:0},"slow");
-                    $(".container").animate({width:0},"slow");
-                    
-                });
-            });
-        </script>
-        
-        <div class="grey">
-        </div>
-        
-        <div class="container">
-            <h2> <img src="images/icon_close.png" class="close" /> 永川生活网<br />永川电视台网络版，百万永川人的网上家园！<br />电话：023-49395562.</h2><br />
+        <div class="container" id="ycshw">
+            <h2> <img src="images/icon_close.png" class="close" onclick="hideDiv('ycshw');"/> 永川生活网<br />永川电视台网络版，百万永川人的网上家园！<br />电话：023-49395562.</h2><br />
             <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5NjMwNDA3OA==&scene=124#wechat_redirect">--历史纪录--</a>
             <img src="images/ewm_ycshw.jpeg" />
             <p>长按上图——识别图中二维码——关注</p>
         </div>
         
-        <div id="tb">
             <table>  
                 <tr>
-                    <td class="icon">
+                    <td class="icon" onclick="popupDiv('ycshw');">
                         <img src="images/logo_.png" /><br />
                         <span>永川生活网</span>
                     </td>
@@ -101,7 +120,6 @@
                     </td>
                 </tr>
             </table>
-        </div>
         
     </body>
 </html>
