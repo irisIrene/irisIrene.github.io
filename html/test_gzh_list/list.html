@@ -2,6 +2,9 @@
     <head>
         <meta charset="utf-8" />
         <title>微信矩阵</title>
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
         <style>
             body{margin: 0; width: 750px;}
@@ -46,6 +49,17 @@
             <img src="images/ewm_ycshw.jpeg" />
             <p>长按上图——识别图中二维码——关注</p>
         </div>
+        
+        <button type="button" class="btn btn-success" title="Popover title"  
+			data-container="body" data-toggle="popover" data-placement="bottom" 
+			data-content="底部的 Popover 中的一些内容">
+		底部的 Popover
+	</button>
+        <script>
+            $(function () { 
+                $("[data-toggle='popover']").popover();
+            });
+        </script>
         
             <table>  
                 <tr>
