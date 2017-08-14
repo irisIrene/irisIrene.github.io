@@ -2,45 +2,51 @@
     <head>
         <meta charset="utf-8" />
         <title>微信矩阵</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
         <style>
             body{margin: 0; width: 750px;}
             a{text-decoration: none}
             
-            .grey{position:absolute; width:750px; height: 100%; background-color:rgba(200,200,200,0.5);display: none;}
-            .container{width: 80%; margin:30% 10%;  background-color:#fff; box-shadow: 0 5px 5px #fff;}
+            .grey{position:absolute; width:100%; height: 100%; background-color:rgba(200,200,200,0.5);}
+            .container{position:absolute; width:750px; margin:30% 10%;  background-color:#fff; box-shadow: 0 5px 5px #fff;}
             .container h2{text-align: center;margin:0;}
             .container h2>img{float: right;}
             .container>a{display: block; width: 100px; margin: 0 auto; padding: 10px; color:#fff; background-color:#ddd; box-shadow: 0 0 3px #eee;}
             .container>img{width:40%; margin: 0 30%;}
             .container p{text-align: center; font-size: 30px;}
+            #tb{width: 100%;}
             table{width:750px; margin: 0 auto; padding: 10px;}
             .icon{width: 200px; height: 300px; color:#666; text-align: center; font-size: 28px;}
             .icon>img{width: 180px; height: 180px;}
         </style>
-        <script type="text/javascript">s
-            function hide(id){
-                document.getElementById(id).style.display = "none";
-            }
-            function show(id){
-                document.getElementById(id).style.display = "block";
-            }
-        </script>
     </head>
     
     <body>
         
-        <div class="grey"  id="ycshw">
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".close").click(function(){
+                    $(".grey").animate({opacity:0},"slow");
+                    $(".container").animate({width:0},"slow");
+                    
+                });
+            });
+        </script>
+        
+        <div class="grey">
+        </div>
+        
         <div class="container">
-            <h2> <img src="images/icon_close.png" onclick="hide('ycshw');"/> 永川生活网<br />永川电视台网络版，百万永川人的网上家园！<br />电话：023-49395562.</h2><br />
+            <h2> <img src="images/icon_close.png" class="close" /> 永川生活网<br />永川电视台网络版，百万永川人的网上家园！<br />电话：023-49395562.</h2><br />
             <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5NjMwNDA3OA==&scene=124#wechat_redirect">--历史纪录--</a>
             <img src="images/ewm_ycshw.jpeg" />
             <p>长按上图——识别图中二维码——关注</p>
         </div>
-        </div>
         
+        <div id="tb">
             <table>  
                 <tr>
-                    <td class="icon" onclick="show('ycshw');">
+                    <td class="icon">
                         <img src="images/logo_.png" /><br />
                         <span>永川生活网</span>
                     </td>
@@ -95,6 +101,7 @@
                     </td>
                 </tr>
             </table>
+        </div>
         
     </body>
 </html>
