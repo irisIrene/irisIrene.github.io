@@ -1,0 +1,822 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>“永川生活网” 举杯邀明月  我画月亮圆</title>
+	<meta name="description" content="中秋画圆，比比谁画的圆">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<link rel="stylesheet" type="text/css" href="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/css/normal.css">
+	<link rel="stylesheet" type="text/css" href="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/css/award.css">
+	<script type="text/javascript" src="http://ui.iluoyang.com/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/js/preload.js"></script>
+	<script type="text/javascript" src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/js/paper-full.min.js"></script>
+	<style>
+		.logo {
+			width: 30%;
+			left: 20px;
+		}
+		.i-img-wrap img,
+		.controls img {
+			height: 2.2rem;
+		}
+		.info {
+			top: -8rem;
+		}
+		.result {
+			bottom: 6rem;
+
+			color: #E8BC33;
+		}
+		.result span {
+
+		}
+		.re_draw {
+			height: auto;
+		}
+		.re_draw img {
+			width: 4rem;
+			height: auto;
+			padding: 0;
+			background: none;
+			border-radius: 0;
+		}
+		.fd-support {
+			position: absolute;
+			z-index: 9;
+			left: 0;bottom: 0.3rem;
+			width: 100%;
+			font-size: 0.75rem;
+			text-align: center;
+			color: #CDAF37;
+		}
+
+		.s1,
+		.s2 {
+			color: #222;
+			background: rgba(255, 255, 255, 0.9);
+		}
+		.get_award {
+			margin-bottom: 5%;
+			border-color: #C7CED2;
+		}
+		.my_award .item {
+			padding: .75rem;
+			height: 4.5rem;
+			border-bottom: 1px solid #C7CDD0;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+
+			justify-content: space-between;
+			align-items: center;
+		}
+		.my_award .left {
+			display: -webkit-inline-flex;
+			display: -moz-inline-flex;
+			display: -ms-inline-flex;
+			display: -o-inline-flex;
+			display: inline-flex;
+			align-items: center;
+
+		}
+		.my_award img {
+			width: 4.5rem;
+			height: 4.5rem;
+			border-radius: 6px;
+		}
+		.my_award span {
+			padding: 0 1rem;
+		}
+		.my_award a {
+			width: 4.625rem;
+			height: 1.625rem;
+			border: 2px solid #222;
+
+			text-align: center;
+			line-height: 1.625rem;
+			color: #222;
+			text-decoration: none;
+
+			background-color: #F6C938;
+			border-radius: 0.9rem;
+		}
+		.my_award .used {
+			background-color: #aaa;
+		}
+		.i_dialog {
+			overflow: visible;
+		}
+		.gift-bg {
+			position: absolute;
+			top: 0;left: 0;width: 100%;
+
+			-webkit-transform: translateY(-100%);
+			   -moz-transform: translateY(-100%);
+			    -ms-transform: translateY(-100%);
+			     -o-transform: translateY(-100%);
+			        transform: translateY(-100%);
+		}
+		.gift-btn img,
+		.gift-bg img {
+			max-width: 100%;
+		}
+		.gift-btn {
+			position: absolute;
+			top: 100%;
+			left: 10%;
+			width: 80%;
+
+			margin-top: 1rem;
+		}
+		.paihang_list ul {
+			border-top: 1px solid #C7CDD0;
+		}
+		.paihang_list li {
+			border-bottom: 1px solid #C7CDD0;
+		}
+        
+        #wuhou_logo{
+            position: relative;
+            float:right;
+            right:-10px;
+        }
+
+	</style>
+</head>
+	
+<body style="font-size: 73.2422%;">
+	<audio src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/bg.mp3" loop="loop" id="music"></audio>
+	<div class="all">
+		<div class="loading">
+			<!-- <div class="pace">
+			<div class="pace-progress">
+				0
+			</div>
+			</div> -->
+			<img style="position: absolute; left: 50%; top: 50%; transform:translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);" src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img/loading.gif" alt="">
+		</div>
+		<script>
+			function initView() {
+				var windowRatio = $(window).width() / 320;
+				var windowRatio = windowRatio > 2 ? 2 : windowRatio;
+				$('body').css('font-size', (windowRatio * 62.5 + '%'));
+				$('.main').height(windowRatio * 420);
+			}
+			var loader = new resLoader({
+				resources: [
+				'http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/bg.png', 
+				'http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/redraw.png',
+				'http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/rank.png',
+				'http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/award.png',
+				'http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/moon.png'
+				],
+				onStart: function(total) {},
+				onProgress: function(current, total) {
+					var percent = parseInt(current / total * 100) + '%';
+					// $('.pace-progress').text(percent);
+				},
+				onComplete: function(total) {
+					$('.loading').hide();
+					initView();
+				}
+			});
+			loader.start();
+		</script>
+        
+		<!-- 弹窗1 no_award-->
+		<div class="i_dialog_wrap" id="no_gift_dialog" style="display: none;">
+			<div class="i_mask"></div>
+			<div class="i_dialog" style="z-index: 10001">
+				<div class="i_dialog_hd"></div>
+				<div class="i_dialog_bd">
+					<div class="gift_info_name strong">很遗憾，您没有中奖</div>
+				</div>
+				<div class="i_dialog_ft">
+					<a href="javascript:;">我知道了</a>
+				</div>
+			</div>
+		</div>
+        
+		<!-- 弹窗2 分数弹窗-->
+		<div class="i_dialog_wrap" id="score_dialog" style="display: none;">
+			<div class="i_mask"></div>
+			<div class="i_dialog" style="z-index: 10001">
+				<div class="i_dialog_hd"></div>
+				<div class="i_dialog_bd tishi">
+					<img style="width: 30%;" src="" alt="">
+				</div>
+				<div class="i_dialog_ft">
+					<a href="javascript:void(0);" class="close">取消</a>
+					<a href="" id="queding">确定</a>
+				</div>
+			</div>
+		</div>
+        
+		<!-- 弹窗3 奖品 弹窗-->
+		<div class="i_dialog_wrap" id="gift_dialog" style="display: none;">
+			<div class="i_mask" style="z-index: 10001"></div>
+			<div class="i_dialog" style="z-index: 10001">
+				<div class="gift-bg">
+					<img src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/gift-bg.png" alt="">
+				</div>
+				<div class="i_dialog_bd titles">
+					<img style="width: 30%;" src="" alt="" id="awa_pic">
+				</div>
+				<div class="i_dialog_hd" id="awa_tit"></div>
+									<div class="i_dialog_hd adds" >手机号:<input name='tel' type='bumber'></div>
+					<div class="i_dialog_hd adds" >姓名:<input name='name' type='text'></div>
+								<a href="javascript:subtel()" class="gift-btn"><img src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/btn-gift.png" alt=""></a>
+			</div>
+		</div>
+        
+		<div class="bg">
+			<!-- 底层背景 -->
+			<img src="images/bg.jpg" class="bg-img" id="bg-img" style="height: 100%;z-index: -1;">
+			<img src="images/bg.jpg" class="bg-img" style="display: none;height: 100%;z-index: -1;">
+			<!-- 上方logo背景 -->
+			<img src="images/logo.png" class="logo" id="wuhou_logo">
+			<div class="yuan-wrap" style="position: absolute; width: 90%; top: 20%; left: 5%;">
+				<!-- <img id="bg_2" src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/beijing2.png" class="i_bg_1"> -->
+				<div id="loop_moon" class="" style="position: absolute; width: 101%; top:5.1%;" >
+					<img class="rotate_loop" style="width: 100%;" src="images/moon.png">
+					<img style="position: absolute; width: 2rem; left: 50%; top:50%;transform: translate(-50%, -49%); -webkit-transform: translate(-50%, -49%);" src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/start.png" alt="">
+					<img style="position: absolute;left: 50%;top: 0;transform: translate(-50%, -35%); -webkit-transform: translate(-50%, -35%);width: 50%" src="images/title.png" alt="">
+					<section class="step1">
+						<div class="moon start" id="start"></div>
+						<div class="moon djs" id="clock"></div>
+					</section>
+				</div>
+			</div>
+		</div>
+        
+		<div class="wrap">
+			<div class="screen screen1">
+				<section class="step2">
+					<canvas id="canvas" width="375" height="667" resize stats hidpi="on" style="top: -4%;border:none;left:0;margin-left:0;"></canvas>
+				</section>
+				<div class="controls">
+					<p class="info" id="info"></p>
+					<p class="result" id="result">
+						<span>
+							<em id="score"></em>分</span>
+						<span id="text"></span>
+					</p>
+					<a href="" id="paihang">
+						<img src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/rank.png" class="next" id="next">
+					</a>
+					<div class="re_draw" id="again">
+						<img src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/icon_draw.png">
+					</div>
+					<!-- <img src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/award.png" class="again" id="again" />-->
+					<a href="" id="jiangpin">
+						<img src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/award.png" class="again" id="go_jiangpin">
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="fd-support">永川生活网 出品</div>
+	</div>
+    
+	<!-- 排行榜及奖品弹出层 -->
+	<div class="i-wrap" id="i-wrap">
+		<div class="bg">
+			<!-- 底层背景 -->
+			<img src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/bg-2.png" class="bg-img" style="height: 100%;">
+		</div>
+		<div class="i-img-wrap">
+		  	<img id="btn_rank" class="s2-paihang" src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/rank.png" alt="" style="display: none;">
+		  	<img id="btn_award" class="s2-jiangping" src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/award-2.png" alt="" style="display: block;">
+		  	<a href="" class="redraw">
+		    	<img class="s2-redraw" src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/img_huanggou/redraw.png" alt="">
+	    	</a>
+		</div>
+        
+        
+		<!-- 排行榜页面 -->
+		<main class="s1" id="s1" style="display: block;">
+		  	<div class="paihang_list">
+		  		<div style="text-align: center; padding: .8em 0 .3em;">
+		  			<div class="tit">排行榜</div>
+			   	 	<div class="count"><span>参加人数：23938 人</span><span>绘画次数：133106 次</span></div>
+			    </div>
+
+			<ul>
+                <li>
+					<div class="i_left">1、<img src="http://wx.qlogo.cn/mmopen/vi_32/YiaHaBLTXK1q2n3dP96WibpHAfUJ3oM6FEpL5JxybpibSLOWD6ldHEicTlCBTiaW1mZ7Zspr0czW0KPZAY7rkNmMHYA/132" width="20px"/>PPD</div>
+					<div class="i_right">99.84分</div>
+				</li>
+            </ul>
+                
+		  	</div>
+		</main>
+        
+        
+		<!-- 我的奖品页面 -->
+		<main class="s2" id="s2" style="display: none;">
+		  <!-- 奖品页面***没有中奖-->
+		  <div class="no_award award" id="s2-1" style="display: block;">
+		    <div class="hd">
+					      <div class="tit">我的排名</div>
+		      <div class="get_award">
+		      	<span>我的最高分<em>95.23</em>分</span><span>第<em>1145</em>名</span>
+		      </div>
+								      <div class="tit">我的奖品</div>
+		      <div class="my_award">
+			      	<div class="item">
+			      		<div class="left">
+			      			<img src="images/jxb.png" alt="">
+			      			<span>江小白 100ml</span>
+			      		</div>
+
+									      			<a href="">领取</a>
+                    </div>
+			      <div class="content">
+                      <p></p>
+			      </div>
+		      </div>
+               <div class="content">
+                   <br />
+                   <h2>活动规则：</h2>
+				   <p>在游戏界面按照提示比比看谁画月亮画的圆！凡成绩在92分以上的朋友，可自动参与抽奖一次哦。</p>
+                    
+                   <br />
+                   <h2>活动简介：</h2>
+                   <h3>【永川生活网】举杯邀明月 &nbsp;我画月亮圆</h3>
+                   <p>一、进入页面，点击开始</p>
+                   <p>二、系统判断92分以上的用户可以抽奖一次</p>
+                   <p>三、抽中奖品后，填写姓名和电话</p>
+                   <br />
+                   <p>活动时间：2017年9月29日—2017年10月10日</p>
+                   <p>奖品领取时间：2017年9月30日-10月10日 每天9:00—12:00; 14:00-17:00</p>
+                   <p>奖品领取地点：永川广播电视台8楼（永川生活网）</p>
+                   <p>客服电话：023-49669562</p>
+                   
+                   <br/>
+                   <h2>活动礼品:</h2>
+                   <p>红旗坡苹果酒 750ml （总数量20瓶）</p>
+                   <p>五粮窖龄酒 100ml  (总数量30瓶)</p>
+                   <p>江小白 100ml  (总数量60瓶)</p>
+                   <p>三清方银耳风味饮料 310ml   (总数量96罐)</p>
+                   <p>数量有限，送完即止</p>
+                   
+                   
+		      </div>
+	      	</div>
+		  </div>
+		</main>
+        
+        
+
+    <div class="fd-support">永川生活网 出品</div>
+	</div>
+
+	<div style="display:none"></div>
+	<script> 
+	var shareDetail = {
+  'imgUrl': 'http://w.hsjiadian.org/attachment/images/8/2017/09/sPg49gSoqOfWb1dmboPb0FgOswsBfi.jpg',
+  'link': 'http://w.hsjiadian.org/app/index.php?i=8&c=entry&eid=237app/./index.php?i=8&do=index&m=huayuan&from=singlemessage&isappinstalled=0app/./index.php?i=8app/./index.php?i=8app/./index.php?i=8app/./index.php?i=8&c=entry&do=index&m=huayuan&wxref=mp.weixin.qq.comapp/./index.php?i=8&c=entry&do=index&m=huayuan',
+  'title': '徒手画圆，白画了一个95.23分的月亮',
+  'desc': '举杯邀明月，我画月亮圆。皇沟御酒邀你挑战，1秒画月亮，好礼等你领！'
+}
+</script>
+	<script type="text/javascript">
+
+  $('.i_dialog_wrap .close').on('click', function() {
+  	$("#queding").attr('href','#');
+  })
+  function subinfo(){
+  	$('#awa_tit').hide();
+  	$('.titles').hide();
+  	$('#gift_dialog').show();
+  }
+		function toused(){
+  			$("#queding").attr('href','javascript:used()');
+			$('#score_dialog').show();
+			$('.tishi').html('非工作人员请勿点击确定!!!');
+
+		}
+		function used(){
+			$.ajax({
+			  url: './index.php?i=8&c=entry&do=used&m=huayuan',
+			  type:"post",
+			  dataType: "json",
+			  success: function(data){
+					$('#score_dialog').show();
+					$('.tishi').html(data.msg)
+  					$("#queding"),attr('href','#');
+			  }
+			});
+		}
+		function subtel(){
+			var tel = $('[name=tel]').val();
+			var name = $('[name=name]').val();
+			if(!(/^1[34578]\d{9}$/.test(tel))){ 
+				alert("手机号码有误，请重填");  
+				return false; 
+			} 
+			$.ajax({
+			  url: './index.php?i=8&c=entry&do=index&m=huayuan',
+			  type:"post",
+			  data:{'tel':tel,'name':name},
+			  dataType: "json",
+			  success: function(data){
+				$('#gift_dialog').hide();
+				$('#score_dialog').show();
+				$('.tishi').html('提交成功,请等待客服联系!')
+				$("#queding"),attr('href','#');
+			  }
+			});
+		}
+		var music = document.getElementById('music');
+		setTimeout(function() {
+			music.play();
+		},200);
+
+		var user_info = {
+			award_type: 0,
+			// 0表示没中奖，1表示中滴滴红包，2表示中其他奖品
+			nickname: '',
+			award_name: '',
+			award_img: '',
+			isChanged: false,
+		}
+
+		
+		// 显示'福袋掉出'动画函数
+		function getObj(id) {
+			return document.getElementById(id);
+		}
+		function show_fudai() {
+			getObj('mask').style.display = "block";
+			var fudai_img = getObj('fudai_img');
+			fudai_img.classList.add('toggle');
+			fudai_img.addEventListener('touchend', function() {
+				getObj('mask').style.display = "none";
+				this.classList.remove('toggle');
+				setTimeout(function() {
+					i_dialog_fudai();
+				}, 500);
+			}, false);
+		}
+		var cur_gift = {
+			type: 0,
+			// 0没中奖，1中滴滴红包，2中实物奖品
+			img: 'img_huanggou/haiyangleyuan.png',
+			hd: '恭喜您获得XX礼品一份',
+		};
+		
+
+		function i_dialog_fudai() {
+			if (cur_gift.type === 0) {
+				getObj('no_gift_dialog').style.display = 'block';
+			} else if (cur_gift.type === 1) {
+				getObj('score_dialog').style.display = 'block';
+			} else {
+				getObj('other_award_hd').innerHTML = cur_gift.hd;
+				getObj('other_award_img').src = cur_gift.img;
+				getObj('other_gift_dialog').style.display = 'block';
+			}
+		}
+
+
+
+		  var page_index = 0; // 0表示显示排行榜，1表示显示奖品
+		  rank_award_update();
+
+		  // 排行榜/奖品 切换显示函数
+		  function rank_award_update() {
+		    if (page_index === 0) {
+		      getObj('btn_rank').style.display = 'none';
+		      getObj('btn_award').style.display = 'block';
+		      document.getElementById('s1').style.display = "block";
+		      document.getElementById('s2').style.display = "none";
+		    } else if (page_index === 1) {
+		      getObj('btn_rank').style.display = 'block';
+		      getObj('btn_award').style.display = 'none';
+		      document.getElementById('s2').style.display = "block";
+		      document.getElementById('s1').style.display = "none";
+		    }
+		  }
+		  document.getElementById('btn_rank').addEventListener('click',
+		  function() {
+		    page_index = 0;
+		    rank_award_update();
+		  },
+		  false);
+		  document.getElementById('btn_award').addEventListener('click',
+		  function() {
+		    page_index = 1;
+		    rank_award_update();
+		  },
+		  false);
+
+		  // 根据中奖信息，显示不同页面
+		  var user_info = {
+		    // 0 未中奖 1中滴滴红包 2中实物奖品
+		    award_type: 0,
+		  }
+		  getObj('paihang').addEventListener('click', function(e) {
+		  	e.preventDefault();
+		  	$('.i-wrap').addClass('active animated bounceInUp');
+		  })
+
+		  getObj('jiangpin').addEventListener('click', function(e) {
+		  	e.preventDefault();
+		  	$('.i-wrap').addClass('active animated bounceInUp');
+		  	$('#btn_award').trigger('click');
+		  })
+
+		  $('.redraw').bind('click', function(e) {
+		  	$('.i-wrap').removeClass('active animated bounceInUp');
+		  	e.preventDefault();
+		  })
+	</script>
+
+	<script type="text/paperscript" canvas="canvas">
+		  
+		  var mainColor = '#F4C938';
+		  var viewWidth = view._viewSize.width;
+		  var viewHeight = view._viewSize.height;
+		  var viewWidth2 = viewWidth / 2;
+		  var viewHeight2 = viewHeight * 0.5;
+		  var windowWidth = viewWidth;
+		  var windowHeight = viewHeight;
+		  var windowMin = Math.min(windowWidth, windowHeight);
+		  var windowMax = Math.max(windowWidth, windowHeight);
+		  var maxCircleRadius = 140;
+		  var pinRadius = 5;
+		  var windowSize = new Size(windowWidth - 1, windowHeight - 1);
+		  var centerPoint = new Point(viewWidth2, viewHeight2);
+		  var rotateFactor = 200;
+		  var status = 1;
+		  var circleRadius = maxCircleRadius;
+		  var hintLineRotated = 0;
+		  var perfection = 1;
+		  var drawed = null;
+		  var simplified = null;
+		  var intersections = [];
+		  var center = new Shape.Circle(centerPoint, pinRadius);
+		  center.fillColor = mainColor;
+		  var hintCircle = new Path.Circle(centerPoint, circleRadius);
+		  hintCircle.strokeColor = mainColor;
+		  hintCircle.strokeWidth = 3;
+		  var hintRadiusLine = new Path.Line(centerPoint, new Point(viewWidth2 - circleRadius, viewHeight2));
+		  hintRadiusLine.strokeColor = mainColor;
+		  hintRadiusLine.rotate(120, centerPoint);
+		  var hintLongLine = new Path.Line(centerPoint, new Point(viewWidth2 - windowMax, viewHeight2));
+		  hintLongLine.rotate(120, centerPoint);
+		  var text = document.getElementById('text');
+		  var score = document.getElementById('score');
+		  var result = document.getElementById('result');
+		  var info = document.getElementById('info');
+		  function init() {
+		    perfection = 1;
+		    circleRadius = maxCircleRadius;
+		    status = 1;
+		    hintLineRotated = 0;
+		    drawed.remove();
+		    drawed = null;
+		    intersections.forEach(function(x) {
+		      x.remove();
+		    })
+		    intersections = [];
+		    hintCircle.remove();
+		    hintCircle = new Path.Circle(centerPoint, circleRadius);
+		    hintCircle.strokeColor = mainColor;
+		    hintRadiusLine.remove();
+		    hintRadiusLine = new Path.Line(centerPoint, new Point(viewWidth2 - circleRadius, viewHeight2));
+		    hintRadiusLine.strokeColor = mainColor;
+		    hintRadiusLine.rotate(120, centerPoint);
+		    hintLongLine.remove();
+		    hintLongLine = new Path.Line(centerPoint, new Point(viewWidth2 - windowMax, viewHeight2));
+		    hintLongLine.rotate(120, centerPoint);
+		    simplified.remove();
+
+		    simplified = null;
+		  }
+		  // alert('游戏已经结束啦!所玩成绩不做记录!');
+		  function onFrame(event) {
+		    if (event.delta > 0.2) {
+		      event.delta = 0.2;
+		    } else if (status === 1) {
+		      if (hintCircle.visible) {
+		        opacity = hintCircle.opacity - 2 * event.delta;
+		        if (opacity < 0) {
+		          opacity = 0;
+		          hintCircle.visible = false;
+		        }
+		        hintCircle.opacity = opacity;
+		      }
+		    } else if (status === 2) {
+		      if (!hintCircle.visible) {
+		        hintCircle.visible = true;
+		      }
+		      if (hintCircle.opacity < 1) {
+		        opacity = hintCircle.opacity + 2 * event.delta;
+		        if (opacity > 1) {
+		          opacity = 1;
+		        }
+		        hintCircle.opacity = opacity;
+		      } else {
+		        if (hintLineRotated < 359.9) {
+		          rotation = event.delta * rotateFactor;
+		          hintLineRotated += rotation;
+		          if (hintLineRotated > 360) {
+		            rotation = 360 - hintLineRotated + rotation;
+		            hintLineRotated = 360;
+		          }
+		          hintRadiusLine.rotate(rotation, new Point(viewWidth2, viewHeight2));
+		          hintLongLine.rotate(rotation, new Point(viewWidth2, viewHeight2));
+		          var intersectionsDraw = hintLongLine.getIntersections(drawed);
+		          var intersectionsCircle = hintLongLine.getIntersections(hintCircle);
+		          var inter1 = centerPoint;
+		          if (intersectionsDraw.length) {
+		            inter1 = intersectionsDraw[0].point;
+		          }
+		          var inter2 = inter1;
+		          if (intersectionsCircle.length) {
+		            inter2 = intersectionsCircle[0].point;
+		          }
+		          if (!simplified) {
+		            simplified = new Path();
+		            simplified.visible = false;
+		          }
+		          simplified.add(inter1);
+		          var intersectionLine = new Path.Line(inter1, inter2);
+		          intersections.push(intersectionLine);
+		          intersectionLine.strokeWidth = 2;
+		          intersectionLine.strokeColor = '#b9812c'; //中间填充的黄色斜线
+		          var distance = inter1.getDistance(inter2);
+		          perfection -= distance / circleRadius * rotation / 360;
+		          if (perfection < 0) {
+		            perfection = 0;
+		          }
+		          text.style.display = 'none';
+		          info.style.display = 'none';
+		          result.style.display = 'block';
+		          score.innerHTML = (perfection * 100).toFixed(2);
+		        } else {
+		          if (!simplified.visible) {
+		            simplified.closed = true;
+		            simplified.smooth();
+		            simplified.strokeColor = mainColor; //最终画出的黑线
+		            simplified.strokeWidth = 2;
+		            simplified.opacity = 0;
+		            simplified.visible = true;
+		          } else if (simplified.opacity < 0.8) {
+		            opacity = simplified.opacity + event.delta;
+		            if (opacity > 1) {
+		              opacity = 1;
+		            }
+		            simplified.opacity = opacity;
+		            drawed.opacity = 1 - opacity;
+		          } else {
+		            var resultScore = parseInt(perfection * 100);
+		            var resultText = '';
+		            if (resultScore < 10) {
+		              resultText = '白,你是不是把月亮给吃没了！';
+		            } else if (resultScore < 50) {
+		              resultText = '白,十五的月饼被你划成初一的了！';
+		            } else if (resultScore < 70) {
+		              resultText = '白,你画的月亮被天狗吃了吗？';
+		            } else if (resultScore < 80) {
+		              resultText = '白,你怎么照着月亮画了个瓢！';
+		            } else if (resultScore < 90) {
+		              resultText = '白,这哪是月亮明明是鸡蛋煎饼！';
+		            } else if (resultScore < 92) {
+		              resultText = '白,你在逗我！这真的是你画的?';
+		            } else if (resultScore < 93) {
+		              resultText = '白,你就是传说中的数学老师!';
+		            } else if (resultScore < 94) {
+		              resultText = '白,你把圆规藏哪儿了?';
+		            } else if (resultScore < 95) {
+		              resultText = '白,你上辈子是圆规吗?';
+		            } else if (resultScore < 99) {
+		              resultText = '白,离完美就差一点了，加油！';
+		            } else {
+		              resultText = '白,你就是完美！完美就是你！';
+		            }
+
+            shareDetail.title = '徒手画圆，白画了一个'+(perfection * 100).toFixed(2)+'分的月亮，你呢？';
+		            var score1 = (perfection * 100).toFixed(2);
+					$.ajax({
+					  url: './index.php?i=8&c=entry&do=update&m=huayuan',
+					  type:"post",
+					  data:{'score':score1},
+					  dataType: "json",
+					  success: function(data){
+						  if( data.success == 1 ) {
+								$('#awa_pic').attr('src','/attachment/'+data.award.logo);
+								$('#awa_tit').html(data.award.title);
+								$('#gift_dialog').show();
+								if( data.award.prize_type == 'hongbao' ){
+									$('.gift-btn').attr('href','http://coupon.m.jd.com/coupons/show.action?key=06db8a32e6234b81947536fd81f1f6f0&roleId=8321739&to=huanggouyujiu.jd.com');
+								}
+						  } else if( data.success == 2 ) {
+								$('#awa_pic').attr('src','/attachment/'+data.award.logo);
+								$('#awa_tit').html('您已经中过"'+data.award.title+'",请在奖品规则中查看');
+								$('#gift_dialog').show();
+								if( data.award.prize_type == 'hongbao' ){
+									$('#awa_tit').html('您已经中过"'+data.award.title+'",请点击下方链接领取');
+									$('.adds').hide();
+									$('.gift-btn').attr('href','http://coupon.m.jd.com/coupons/show.action?key=06db8a32e6234b81947536fd81f1f6f0&roleId=8321739&to=huanggouyujiu.jd.com');
+								}
+						  } else if( data.success == 3 ) {
+						  } else {
+								$('#score_dialog').show();
+								$('.tishi').html(data.msg)
+						  }
+					  }
+					});
+		            text.style.display = 'block';
+		            text.innerHTML = resultText;
+		            var again = document.getElementById('again');
+		            again.style.display = 'block';
+		            // var next = document.getElementById('next');
+		            // next.style.display = 'block';
+		            again.addEventListener('click', function() {
+		              again.style.display = 'none';
+		              // next.style.display = 'none';
+		              info.style.display = 'block';
+		              result.style.display = 'none';
+		              info.innerHTML = '有圆心，有半径，剩下的靠你了！';
+		              init();
+		            }, false);
+		            status = 4;
+		          }
+		        }
+		      }
+		    }
+		  }
+		  function onMouseDown(event) {
+		    if (status === 1) {
+		      if (!drawed) {
+		        drawed = new Path({
+		          segments: [event.point],
+		          strokeColor: mainColor,
+		        });
+		        drawed.strokeWidth = 5;
+		      }
+		    } else if (status === 3) {
+		      status = 4;
+		    }
+		  }
+		  function onMouseDrag(event) {
+		    if (status === 1) {
+		      drawed.add(event.point);
+		    }
+		  }
+		  function onMouseUp(event) {
+		    if (status === 1) {
+		      if (drawed) {
+		        status = 2;
+		      }
+		    }
+		  }
+		  var a = 1;
+	</script>
+
+	<script type="text/javascript" src="http://ui.iluoyang.com/css/mobile_news/huodong/zq_huayuan/js/custom.js"></script>
+
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script language='javascript'>
+  jssdkconfig = {"appId":"wx9800fe3f14ead7a1","nonceStr":"YEm0mGdGuD4ewdtk","timestamp":"1506478456","signature":"36f409dcdaf5bc5d8cd39600049ad05b2b8684d8"} || {}
+  // 是否启用调试
+  jssdkconfig.debug = false;
+
+  jssdkconfig.jsApiList = [
+    'checkJsApi',
+    'onMenuShareTimeline',
+    'onMenuShareAppMessage',
+    'onMenuShareQQ',
+    'onMenuShareWeibo',
+    'showOptionMenu',
+    'closeWindow',
+    'chooseImage',
+    'previewImage',
+    'uploadImage',
+    'downloadImage'
+
+  ];
+
+  wx.config(jssdkconfig);
+
+  wx.ready(function () {
+    wx.showOptionMenu();
+    wx.onMenuShareAppMessage(shareDetail);
+    wx.onMenuShareTimeline(shareDetail);
+    wx.onMenuShareQQ(shareDetail);
+    wx.onMenuShareWeibo(shareDetail);
+  });
+
+	document.addEventListener("WeixinJSBridgeReady", function () {
+		music.play();
+	}, false);
+</script>
+<script>;var we7_stats = document.createElement('script');we7_stats.src = 'http://w.hsjiadian.org/app/index.php?i=8&c=utility&a=visit&do=showjs&m=huayuan';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(we7_stats, s);</script></body>
+</html>
